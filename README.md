@@ -1,4 +1,5 @@
-# Venn
+# Venn: Resource Management Across Federated Learning Jobs
+
 [![arXiv](https://img.shields.io/badge/arXiv-2312.08298v1-b31b1b.svg)](https://arxiv.org/abs/2312.08298v1)
 
 Venn is a federated learning (FL) resource manager that efficiently schedules ephemeral, heterogeneous edge devices among multiple FL jobs, reducing average job completion time.
