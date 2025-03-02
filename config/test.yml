@@ -1,0 +1,17 @@
+
+RANDOMSEED: 1021
+# Simulation Duration
+NUM_DAY: 5 
+NUM_WEEK: 10
+# Client availability trace
+client_file: 'trace/fedscale_clients_7000000_3_info.csv'
+# Client eligibility trace - Figure 8 in the paper
+eligibility_file: 'trace/aibenchmark_eligibility_4'
+
+
+# The probability of job demand in the workload, 
+# Corresponding to Figure 8 in the paper
+# check job_config.yml
+job_id_prob: [1, 3, 0, 0, 0, 0, 0, 0, 0]
+# the probability of job type in the workload 
+job_type_prob: [0, 1, 0]

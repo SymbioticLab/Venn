@@ -1,0 +1,65 @@
+
+jobs:
+  - config: # 1
+      participants: 300
+      rounds: 1000
+      concurrency: 0
+      job_type: 'sync'
+      deadline: 300
+      eligibility: 0
+  - config: # 2
+      participants: 100
+      rounds: 4000
+      concurrency: 0
+      job_type: 'sync'
+      deadline: 300
+      eligibility: 1
+  - config: # 3
+      participants: 200
+      rounds: 2000
+      concurrency: 0
+      job_type: 'sync'
+      deadline: 600
+      eligibility: 2
+  - config: # 4
+      participants: 200
+      rounds: 3000
+      concurrency: 0
+      job_type: 'sync'
+      deadline: 300
+      eligibility: 2
+  - config: # 5
+      participants: 80
+      rounds: 10000
+      concurrency: 0
+      job_type: 'sync'
+      deadline: 300
+      eligibility: 2
+  - config: # 6
+      participants: 500
+      rounds: 3000
+      concurrency: 0
+      job_type: 'sync'
+      deadline: 900
+      eligibility: 1
+  - config: # 7
+      participants: 1000
+      rounds: 10000
+      concurrency: 10
+      job_type: 'async'
+      deadline: 180
+      eligibility: 0
+  - config: # 8
+      participants: 1000
+      rounds: 20000
+      concurrency: 10
+      job_type: 'async'
+      deadline: 180
+      eligibility: 1
+  - config: # 9
+      participants: 1000
+      rounds: 50000
+      concurrency: 10
+      job_type: 'async'
+      deadline: 180
+      eligibility: 1

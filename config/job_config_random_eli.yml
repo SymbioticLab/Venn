@@ -1,0 +1,284 @@
+
+jobs:
+    - config: # 1
+          participants: 1500
+          rounds: 856
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 2
+          participants: 500
+          rounds: 2568
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 3
+          participants: 750
+          rounds: 1712
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 4
+          participants: 100
+          rounds: 1000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 5
+          participants: 100
+          rounds: 2000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 6
+          participants: 100
+          rounds: 3000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 7
+          participants: 100
+          rounds: 4000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 8
+          participants: 200
+          rounds: 1000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 600
+          workload: 30
+
+    - config: # 9
+          participants: 200
+          rounds: 2000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 600
+          workload: 30
+
+    - config: # 10
+          participants: 200
+          rounds: 3000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 600
+          workload: 30
+
+    - config: # 11
+          participants: 800
+          rounds: 1000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 12
+          participants: 200
+          rounds: 1000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 600
+          workload: 30
+
+    - config: # 13
+          participants: 400
+          rounds: 1000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 14
+          participants: 32
+          rounds: 1463
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 15
+          participants: 64
+          rounds: 1463
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 16
+          participants: 128
+          rounds: 1463
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 17
+          participants: 20
+          rounds: 2000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 18
+          participants: 50
+          rounds: 2000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 300
+          workload: 30
+
+    - config: # 19
+          participants: 200
+          rounds: 2000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 600
+          workload: 30
+
+    - config: # 20
+          participants: 500
+          rounds: 2000
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 21
+          participants: 500
+          rounds: 930
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 22
+          participants: 500
+          rounds: 980
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 23
+          participants: 500
+          rounds: 1280
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 24
+          participants: 500
+          rounds: 1620
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 25
+          participants: 500
+          rounds: 530
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 26
+          participants: 500
+          rounds: 1900
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 27
+          participants: 500
+          rounds: 1750
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 28
+          participants: 500
+          rounds: 1800
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 29
+          participants: 500
+          rounds: 1360
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 30
+          participants: 500
+          rounds: 1600
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 31
+          participants: 500
+          rounds: 1290
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 32
+          participants: 500
+          rounds: 1980
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+    - config: # 33
+          participants: 500
+          rounds: 640
+          concurrency: 0
+          job_type: 'sync'
+          deadline: 1000
+          workload: 30
+
+
+job_requirement:
+    - eligibility: # 1
+        memory: 10
+        cpu: 1
+        os: 6
+    - eligibility: # 2
+        memory: 10
+        cpu: 7
+        os: 6
+    - eligibility: # 3
+        memory: 1000
+        cpu: 1
+        os: 6
+    - eligibility: # 4
+        memory: 1000
+        cpu: 7
+        os: 6

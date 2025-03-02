@@ -1,0 +1,11 @@
+RANDOMSEED: 2
+NUM_DAY: 5
+NUM_WEEK: 25
+client_file: 'trace/fedscale_clients_7000000_3_info.csv'
+eligibility_file: 'trace/aibenchmark_eligibility_4'
+job_config_file: 'config/job_config_random_eli.yml'
+
+
+job_id_prob: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+job_type_prob: [1, 0, 0]
+eligiblility_prob: [0.1, 0.7, 0.1, 0.1]
