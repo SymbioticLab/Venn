@@ -9,30 +9,33 @@ Venn is a federated learning (FL) resource manager that efficiently schedules ep
 To set up the conda environment, follow these steps:
 
 1. Download and install Miniconda:
-   ```bash
-   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
-   bash ~/miniconda.sh -b -p $HOME/miniconda
-   eval "$($HOME/miniconda/bin/conda shell.bash hook)"
-   conda init
-   source ~/.bashrc
-   ```
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+bash ~/miniconda.sh -b -p $HOME/miniconda
+eval "$($HOME/miniconda/bin/conda shell.bash hook)"
+conda init
+source ~/.bashrc
+```
 
 2. Clone the repository:
-   ```bash
-   git clone https://github.com/SymbioticLab/Venn
-   cd Venn
-   ```
+```bash
+git clone https://github.com/SymbioticLab/Venn
+cd Venn
+```
 
 3. Create the conda environment:
-   ```bash
-   conda env create -f environment.yml
-   conda activate venn_env
-   ```
+```bash
+conda env create -f environment.yml
+conda activate venn_env
+```
 
-4. Install the Venn package:
-   ```bash
-   pip install -e .
-   ```
+4. Download the FL job and client traces.
+```bash
+sudo apt update
+sudo apt install git-lfs
+git lfs install
+git lfs pull            
+```
 
 ## Usage
 Run simulations for scheduling FL jobs using the following command:
