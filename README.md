@@ -17,16 +17,16 @@ To set up the conda environment, follow these steps:
    source ~/.bashrc
    ```
 
-2. Create the conda environment:
-   ```bash
-   conda create --name venn_env python=3.8 --yes
-   conda activate venn_env
-   ```
-
-3. Clone the repository:
+2. Clone the repository:
    ```bash
    git clone https://github.com/SymbioticLab/Venn
    cd Venn
+   ```
+
+3. Create the conda environment:
+   ```bash
+   conda env create -f environment.yml
+   conda activate venn_env
    ```
 
 4. Install the Venn package:
