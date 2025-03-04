@@ -25,7 +25,7 @@ To set up the conda environment, follow these steps:
 
 3. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Venn.git
+   git clone https://github.com/SymbioticLab/Venn
    cd Venn
    ```
 
