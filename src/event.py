@@ -173,6 +173,7 @@ def visualize_result(acc_job_res, acc_job_res_time, straggler_time, failure_time
     # plt.text(0, 8, res_str)
     plt.show()
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    os.makedirs('fig', exist_ok=True)
     file_name = f'fig/{sys.argv[1:5]}_{sys.argv[5][7:]}_{res_str}.png'
     with open('logging.txt', 'a') as file:
         file.write(f'[{current_time}]: {file_name}\n')

@@ -2,6 +2,7 @@
 *.egg-info
 *.egg
 *.py[cod]
+src/__pycache__/
 __pycache__/
 *.so
 *~
