@@ -1,0 +1,30 @@
+//  python -m grpc_tools.protoc --proto_path=. ./parameter_server.proto --python_out=. --grpc_python_out=. 
+//  import evaluation.job.channels.parameter_server_pb2 as parameter__server__pb2
+
+syntax = "proto3";
+
+package parameter_server;
+
+service Parameter_server { 
+    rpc CLIENT_CHECKIN(client_id) returns (server_response) {}
+    rpc CLIENT_PING (client_id) returns (server_response) {}
+    rpc CLIENT_EXECUTE_COMPLETION (client_complete) returns (server_response) {}
+}
+
+message client_id {
+    int32 id = 1;
+}
+
+message server_response {
+    string event = 1;
+    bytes meta = 2;
+    bytes data = 3;
+}
+
+message client_complete {
+    int32 id = 1;
+    string event = 2;
+    bool status = 3;
+    bytes meta = 4;
+    bytes data = 5;
+}

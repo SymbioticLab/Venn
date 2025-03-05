@@ -1,0 +1,294 @@
+version: '3.9'
+
+services:
+  scheduler:
+    build:
+      context: .
+      dockerfile: ./propius/scheduler/Dockerfile
+    volumes:
+    - ./propius:/propius
+    depends_on:
+    - client_db_0
+    - client_db_1
+    - job_db
+    stop_signal: SIGINT
+    environment:
+    - TZ=America/Detroit
+  job_manager:
+    build:
+      context: .
+      dockerfile: ./propius/job_manager/Dockerfile
+    volumes:
+    - ./propius:/propius
+    depends_on:
+    - scheduler
+    stop_signal: SIGINT
+    environment:
+    - TZ=America/Detroit
+    ports:
+    - 50011:50011
+  load_balancer:
+    build:
+      context: .
+      dockerfile: ./propius/load_balancer/Dockerfile
+    volumes:
+    - ./propius:/propius
+    depends_on:
+    - client_manager_0
+    - client_manager_1
+    stop_signal: SIGINT
+    environment:
+    - TZ=America/Detroit
+    ports:
+    - 50012:50012
+  job_db:
+    build:
+      context: .
+      dockerfile: ./propius/database/Dockerfile
+    command: ['6379']
+    environment:
+    - TZ=America/Detroit
+  executor:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_executor
+    volumes:
+    - ./evaluation:/evaluation
+    stop_signal: SIGINT
+    depends_on:
+    - worker_0
+    - worker_1
+    - worker_2
+    - worker_3
+    - worker_4
+    - worker_5
+    - worker_6
+    - worker_7
+    environment:
+    - TZ=America/Detroit
+    ports:
+    - 49989:49989
+
+  client_manager_0:
+    build:
+      context: .
+      dockerfile: ./propius/client_manager/Dockerfile
+    volumes:
+    - ./propius:/propius
+    depends_on:
+    - job_db
+    - client_db_0
+    - scheduler
+    command:
+    - '0'
+    environment:
+    - TZ=America/Detroit
+    stop_signal: SIGINT
+  client_db_0:
+    build:
+      context: .
+      dockerfile: ./propius/database/Dockerfile
+    command:
+    - '6380'
+    environment:
+    - TZ=America/Detroit
+  client_manager_1:
+    build:
+      context: .
+      dockerfile: ./propius/client_manager/Dockerfile
+    volumes:
+    - ./propius:/propius
+    depends_on:
+    - job_db
+    - client_db_1
+    - scheduler
+    command:
+    - '1'
+    environment:
+    - TZ=America/Detroit
+    stop_signal: SIGINT
+  client_db_1:
+    build:
+      context: .
+      dockerfile: ./propius/database/Dockerfile
+    command:
+    - '6381'
+    environment:
+    - TZ=America/Detroit
+
+  worker_0:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '0'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit
+  worker_1:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '1'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit
+  worker_2:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '2'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit
+  worker_3:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '3'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit
+  worker_4:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '4'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit
+  worker_5:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '5'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit
+  worker_6:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '6'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit
+  worker_7:
+    build:
+      context: .
+      dockerfile: ./evaluation/executor/Dockerfile_worker_gpu
+      args:
+        WORKER_IMAGE: nvidia/cuda:11.6.2-devel-ubuntu20.04
+    volumes:
+    - ./evaluation:/evaluation
+    - ./datasets:/datasets
+    stop_signal: SIGINT
+    command:
+    - '7'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 4
+            capabilities:
+            - gpu
+    environment:
+    - TZ=America/Detroit

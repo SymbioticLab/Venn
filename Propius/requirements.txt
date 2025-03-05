@@ -1,0 +1,10 @@
+numpy
+redis
+pandas
+grpcio
+grpcio-tools
+pyyaml
+matplotlib
+google-api-python-client
+pytest
+ruamel_yaml

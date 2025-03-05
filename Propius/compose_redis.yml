@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  job_db:
+    build:
+      context: .
+      dockerfile: ./propius/controller/database/Dockerfile
+    command: ['6379']
+    ports:
+    - 6379:6379
+    environment:
+    - TZ=America/Detroit
+
+  client_db_0:
+    build:
+      context: .
+      dockerfile: ./propius/controller/database/Dockerfile
+    command:
+    - '6380'
+    ports:
+    - 6380:6380
+    environment:
+    - TZ=America/Detroit
+  client_db_1:
+    build:
+      context: .
+      dockerfile: ./propius/controller/database/Dockerfile
+    command:
+    - '6381'
+    ports:
+    - 6381:6381
+    environment:
+    - TZ=America/Detroit

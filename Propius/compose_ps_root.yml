@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  ps_root:
+    build:
+      context: .
+      dockerfile: ./propius/parameter_server/root/Dockerfile
+    volumes:
+    - ./propius:/propius
+    stop_signal: SIGINT
+    environment:
+    - TZ=America/Detroit
+    ports:
+    - 60000:60000

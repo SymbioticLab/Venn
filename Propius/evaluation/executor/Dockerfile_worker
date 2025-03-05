@@ -1,0 +1,16 @@
+ARG WORKER_IMAGE
+
+FROM $WORKER_IMAGE
+
+WORKDIR /
+RUN mkdir /evaluation
+RUN mkdir /evaluation/executor
+COPY ./evaluation/commons.py /evaluation/commons.py
+COPY ./evaluation/requirements.txt /evaluation/requirements.txt
+COPY ./evaluation/executor/entrypoint.sh /evaluation/executor/entrypoint.sh
+
+RUN pip3 install --upgrade pip
+RUN pip3 install -r /evaluation/requirements.txt
+RUN chmod +x /evaluation/executor/entrypoint.sh 
+
+ENTRYPOINT ["/evaluation/executor/entrypoint.sh"]

@@ -1,0 +1,45 @@
+# Server setting
+connection_timeout: 500
+
+# Training and testing aggregator setting
+demand: 2
+total_round: 3  # Total round
+over_selection: 4
+
+ps_ip: localhost
+ps_port: 51000
+
+
+# Training and testing client setting
+engine: pytorch
+model: mobilenet_v2
+dataset: femnist
+learning_rate: 0.05
+num_loaders: 4
+local_steps: 10
+loss_decay: 0.95
+batch_size: 10
+
+decay_round: 3  # learning rate decay after decay round
+decay_factor: 0.9
+min_learning_rate: 0.01
+
+test_ratio: 0.5
+test_bsz: 10
+eval_interval: 3
+use_cuda: False
+
+gradient_policy: fed-avg
+# yogi_eta: 1.e-2
+# yogi_tau: 1.e-3
+# yogi_beta1: 0.9
+# yogi_beta2: 0.99
+
+# Client constraints
+public_constraint:
+    cpu_f: 0
+    ram: 0
+    fp16_mem: 0
+    android_os: 0
+private_constraint:
+    dataset_size: 100

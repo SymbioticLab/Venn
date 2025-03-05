@@ -1,0 +1,90 @@
+# ---Propius setting---
+selection_method: propius   # "random", "static_partition", "propius"
+
+load_balancer_ip: localhost
+load_balancer_port: 50002
+
+job_manager_ip: localhost
+job_manager_port: 50001
+
+job_public_constraint:
+- cpu_f
+- ram
+- fp16_mem
+- android_os
+job_private_constraint:
+- dataset_size_dummy
+- dataset_size_house_price
+
+client_result_path: ./evaluation/monitor/client/client_result.csv
+
+sched_alg: irs
+
+# ---Evaluation setting---
+speedup_factor: 3
+test_bsz: 20
+test_ratio: 1
+eval_interval: 10
+
+client_test_num: 20
+ideal_client: false
+
+# Job
+total_job: 5
+profile_folder: ./evaluation/job/profile_dummy
+job_trace: ./evaluation/job/trace/job_trace_4.txt
+
+# If job number is 20, there will be 20 job addresses, starting from the defined port number
+job_driver_ip: localhost
+job_driver_starting_port: 60000
+
+# ---Data path---
+client_avail_path: ./datasets/device_info/client_behave_trace
+client_comm_path: ./datasets/device_info/client_device_capacity
+client_spec_path: ./datasets/device_info/client_spec_speed
+client_size_path: ./datasets/device_info/client_dataset_size
+
+data_dir: ./datasets/femnist
+data_map_file: ./datasets/femnist/client_data_mapping/train.csv
+test_data_map_file: ./datasets/femnist/client_data_mapping/test.csv
+
+do_compute: false
+is_FA: false
+
+use_cuda: false
+use_docker: true
+
+dispatcher_use_docker: true
+
+executor_ip: localhost
+executor_port: 49989
+cuda_device: cuda:0 # if use cuda, else cpu
+round_timeout: 3600
+
+# ---Multi worker
+worker:
+- ip: localhost
+  port: 49998
+  device: 2
+- ip: localhost
+  port: 49997
+  device: 2
+- ip: localhost
+  port: 49996
+  device: 2
+- ip: localhost
+  port: 49995
+  device: 2
+- ip: localhost
+  port: 49994
+  device: 3
+- ip: localhost
+  port: 49993
+  device: 3
+- ip: localhost
+  port: 49992
+  device: 3
+- ip: localhost
+  port: 49991
+  device: 3
+client_num: 1000

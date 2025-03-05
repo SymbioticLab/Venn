@@ -71,6 +71,9 @@ The Venn project is organized as follows:
 - **config/**: Contains configuration files for FL job traces (resource demands and FL job type distribution). Check out `/config/test.yml` for more details.
 - **trace/**: Contains configuration files for FL client traces (availability and eligiblity traces). 
 
+## Testbed
+Venn is implemented in Propius testbed. Please check how to run Propius in the [Propius repository](./Propius/README.md).
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
