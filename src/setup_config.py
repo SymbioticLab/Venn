@@ -36,9 +36,9 @@ random.seed(RANDOMSEED)
 np.random.seed(RANDOMSEED)
 
 apple_job = ['AppleJob', 'DecAppleJob']
-google_job = ['Job', 'AgnosticJob', 'GoogleJob', 'DecentralizedJob', 'AMGGoogleJob']
-async_job = ['PapayaJob', 'DecPapayaJob', 'AMGPapayaJob']
-amg_job_name = ['AMGGoogleJob', 'AMGAppleJob', 'AMGPapayaJob' ]
+google_job = ['Job', 'AgnosticJob', 'GoogleJob', 'DecentralizedJob', 'GoogleJob']
+async_job = ['PapayaJob', 'DecPapayaJob', 'PapayaJob']
+amg_job_name = ['GoogleJob', 'AppleJob', 'PapayaJob' ]
 
 def load_device_capacity(file_path = 'trace/client_device_capacity'):
     global_client_profile = {}
@@ -132,7 +132,7 @@ def generate_job_by_config(num_job, job_type):
             if jobs[job_id]['config']['job_type'] == 'sync':
                 jtype = np.random.choice(amg_job_name[:2], 1, p = job_type_prob[:2] )[0]
             else:
-                jtype = 'AMGPapayaJob'
+                jtype = 'PapayaJob'
 
         num_part = jobs[job_id]['config']['participants']
         if jtype in google_job:
