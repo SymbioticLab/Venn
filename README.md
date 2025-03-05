@@ -41,14 +41,7 @@ git lfs pull
 Run simulations for scheduling FL jobs using the following command:
 ```bash
 python src/venn_event.py <Scheduler> <JobType> <ClientType> <NumJobs> <ClientAndJobTrace>
-```
-
-Quick Test - Small Scale FL Jobs Scheduling:
-```bash
-python src/venn_event.py SmallReqScheduler MixedJob VennClient 50 config/test.yml
-python src/venn_event.py FIFOScheduler MixedJob VennClient 50 config/test.yml 
-python src/venn_event.py VennReqScheduler MixedJob VennClient 50 config/test.yml 
-```
+``` 
 
 Commands to reproduce Table 1 line 1:
 ```bash
