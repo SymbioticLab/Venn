@@ -1,0 +1,102 @@
+//  python -m grpc_tools.protoc --proto_path=. ./propius.proto --python_out=. --grpc_python_out=. 
+//  import propius.controller.channels.propius_pb2 as propius__pb2
+
+syntax = "proto3";
+
+package propius;
+
+service Job_manager {
+    rpc JOB_REGIST (job_info) returns (job_register_ack) {}
+    rpc JOB_REQUEST (job_round_info) returns (jm_ack) {}
+    rpc JOB_END_REQUEST (job_id) returns (ack) {}
+    rpc JOB_FINISH (job_id) returns (empty) {}
+    rpc HEART_BEAT (empty) returns (ack) {}
+}
+
+service Scheduler {
+    rpc JOB_REGIST (job_id) returns (ack) {}
+    rpc JOB_REQUEST (job_id) returns (ack) {}
+    rpc GET_JOB_GROUP (empty) returns (group_info) {}
+    rpc HEART_BEAT (empty) returns (ack) {}
+}
+
+service Client_manager {
+    rpc CLIENT_CHECKIN (client_checkin) returns (cm_offer) {}
+    rpc CLIENT_PING(client_id) returns (cm_offer) {}
+    rpc CLIENT_ACCEPT (client_accept) returns (cm_ack) {}
+    rpc HEART_BEAT (empty) returns (ack) {}
+    //TODO rpc HEALTH_CHECK (empty) returns (cm_ack) {}
+}
+
+service Load_balancer {
+    rpc CLIENT_CHECKIN (client_checkin) returns (cm_offer) {}
+    rpc CLIENT_PING(client_id) returns (cm_offer) {}
+    rpc CLIENT_ACCEPT (client_accept) returns (cm_ack) {}
+    rpc HEART_BEAT (empty) returns (ack) {}
+}
+
+message client_checkin {
+    bytes public_specification = 1; // {ps: tuple, op: float}
+}
+
+message cm_offer {
+    int32 client_id = 1;
+    bytes task_offer = 2;
+    bytes private_constraint = 3;
+    int32 total_job_num = 4; //for analytics
+}
+
+message group_info {
+    bytes group = 1;
+}
+
+message client_accept {
+    int32 client_id = 1;
+    int32 task_id = 2;
+}
+
+message cm_ack {
+    bool ack = 1;
+    bytes job_ip = 2;
+    int32 job_port = 3;
+    int32 round = 4;
+}
+
+message jm_ack {
+    bool ack = 1;
+    int32 round = 2;
+}
+
+message client_id {
+    int32 id = 1;
+}
+
+message job_id {
+    int32 id = 1;
+}
+
+message job_info {
+    int32 est_demand = 1;
+    int32 est_total_round = 2;
+    bytes public_constraint = 3;
+    bytes private_constraint = 4;
+    bytes ip = 5;
+    int32 port = 6;
+}
+
+message job_round_info {
+    int32 id = 1;
+    int32 demand = 2;
+}
+
+message empty {
+}
+
+message job_register_ack {
+    int32 id = 1;
+    bool ack = 2;
+}
+
+message ack {
+    bool ack = 1;
+}

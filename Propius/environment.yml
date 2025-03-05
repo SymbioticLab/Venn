@@ -1,0 +1,17 @@
+name: propius
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - grpcio
+  - grpcio-tools
+  - pyyaml
+  - numpy
+  - matplotlib
+  - redis-py
+  - pandas
+  - pytorch
+  - torchvision
+  - ruamel.yaml
+  - librosa

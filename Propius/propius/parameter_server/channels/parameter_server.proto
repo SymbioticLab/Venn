@@ -1,0 +1,26 @@
+//  python -m grpc_tools.protoc --proto_path=. ./parameter_server.proto --python_out=. --grpc_python_out=. 
+//  import propius.parameter_server.channels.parameter_server_pb2 as parameter__server__pb2
+
+syntax = "proto3";
+
+package propius_parameter_server;
+
+service Parameter_server {
+    rpc CLIENT_GET (job) returns (job) {}
+    rpc CLIENT_PUSH (job) returns (ack) {}
+    rpc JOB_PUT (job) returns (ack) {}
+    rpc JOB_GET (job) returns (job) {}
+    rpc JOB_DELETE (job) returns (ack) {}
+}
+
+message job {
+    int32 code = 1; // 0: request, 1: sucess, 2: stale, 3: miss, 4: fail, 5: update, 6: pending
+    int32 job_id = 2;
+    int32 round = 3;
+    bytes meta = 4; // agg_cnt | demand, config
+    bytes data = 5;
+}
+
+message ack {
+    int32 code = 1; 
+}

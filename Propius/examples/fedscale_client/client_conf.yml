@@ -1,0 +1,17 @@
+# Option
+# is_dummy: True # if is_dummy, the client won't perform actual
+# training/testing
+
+# Dataset
+data_set: femnist
+
+# Specification
+public_spec:
+    - 30
+    - 30
+    - 30
+private_spec: []
+
+# TODO
+task: cv
+memory_capacity: 1

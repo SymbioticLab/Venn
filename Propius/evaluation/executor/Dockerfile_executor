@@ -1,0 +1,10 @@
+FROM python:3.9
+
+WORKDIR /
+RUN mkdir /evaluation
+COPY ./evaluation/commons.py /evaluation/commons.py
+COPY ./evaluation/requirements.txt /evaluation/requirements.txt
+
+RUN pip3 install --upgrade pip
+RUN pip3 install -r /evaluation/requirements.txt
+CMD ["python3", "./evaluation/executor/executor.py"]

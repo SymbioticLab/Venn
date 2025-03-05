@@ -1,0 +1,36 @@
+# Training and testing aggregator setting
+demand: 100
+total_round: 400
+over_selection: 1.3
+
+sched_timeout: 120
+exec_timeout: 900
+
+# Training and testing client setting
+engine: pytorch
+model: resnet34
+dataset: google_speech
+learning_rate: 0.05
+num_loaders: 4
+local_steps: 30
+loss_decay: 0.2
+batch_size: 20
+
+min_learning_rate: 5.e-5
+decay_factor: 0.98
+decay_round: 10
+
+gradient_policy: fed-avg
+# yogi_eta: 3.e-3
+# yogi_tau: 1.e-8
+# yogi_beta1: 0.9
+# yogi_beta2: 0.99
+
+# Client constraints
+public_constraint:
+    cpu_f: 6
+    ram: 4
+    fp16_mem: 800
+    android_os: 6
+private_constraint:
+    dataset_size: 22

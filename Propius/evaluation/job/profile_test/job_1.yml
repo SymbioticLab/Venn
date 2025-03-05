@@ -1,0 +1,36 @@
+# Training and testing aggregator setting
+demand: 1
+total_round: 2
+over_selection: 1
+
+sched_timeout: 150
+exec_timeout: 510
+
+# Training and testing client setting
+engine: pytorch
+model: resnet18
+dataset: femnist
+learning_rate: 0.05
+num_loaders: 4
+local_steps: 10
+loss_decay: 0.95
+batch_size: 20
+
+min_learning_rate: 5.e-5
+decay_factor: 0.98
+decay_round: 10
+
+gradient_policy: fed-avg
+# yogi_eta: 1.e-2
+# yogi_tau: 1.e-3
+# yogi_beta1: 0.9
+# yogi_beta2: 0.99
+
+# Client constraints
+public_constraint:
+    cpu_f: 3
+    ram: 3
+    fp16_mem: 3
+    android_os: 3
+private_constraint:
+    dataset_size: 3

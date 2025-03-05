@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  ps_leaf:
+    build:
+      context: .
+      dockerfile: ./propius/parameter_server/leaf/Dockerfile
+    volumes:
+    - ./propius:/propius
+    stop_signal: SIGINT
+    environment:
+    - TZ=America/Detroit
+    ports:
+    - 60001:60001

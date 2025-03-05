@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "propius"
+description = "Collaborative ML Platform"
+version = "1.0.0"
+requires-python = ">=3.9"
+dependencies = [
+    "bs4",
+    "click",
+    "pycodestyle",
+    "pydocstyle",
+    "pylint",
+    "markdown",
+    "mypy",
+    "pytest",
+    "pytest-mock",
+]
+
+[tool.setuptools.packages]
+find = {where = ["propius"]}
+
+[project.scripts]
+propius-controller-scheduler = "propius.controller.scheduler.__main__:main"
+propius-controller-job-manager = "propius.controller.job_manager.__main__:main"
+propius-controller-client-manager = "propius.controller.client_manager.__main__:main"
+propius-controller-load-balancer = "propius.controller.load_balancer.__main__:main"
+
+[tool.pylint.typecheck]
+# List of decorators that change the signature of a decorated function.
+# We need this because Click decorators mutate the main() function.
+signature-mutators = ["command", "option", "argument"]
+
+[tool.pylint.design]
+# Maximum number of arguments for function / method.
+max-args = 6
+# Minimum number of public methods for a class (see R0903).
+min-public-methods = 1

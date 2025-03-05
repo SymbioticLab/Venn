@@ -1,0 +1,20 @@
+data_set: femnist
+# Specification
+public_specifications:
+    cpu_f: 11
+    ram: 9
+    fp16_mem: 1500
+    android_os: 12
+private_specifications:
+    dataset_size_dummy: 170
+
+# TODO
+task: cv
+memory_capacity: 1
+
+computation_speed: 64.0
+communication_speed: 3345.714
+
+active: [1, 800]
+inactive: [801, 1000]
+

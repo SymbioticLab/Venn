@@ -1,0 +1,84 @@
+# GLOBAL CONFIG
+use_docker: true
+log_path: monitor/log
+plot_path: monitor/plot
+
+# APPLICATION LAYER
+job_manager_ip: localhost
+job_manager_port: 50001
+
+job_db_ip: localhost
+job_db_port: 6379
+
+# SCHEDULING LAYER
+scheduler_ip: localhost
+scheduler_port: 50000
+
+sched_mode: online # ['online', 'offline']
+sched_alg: irs # ['irs'] for online, ['fifo', 'random', 'srsf'] for offline
+
+## IRS parameter
+tier_num: 1
+
+# BINDING LAYER
+load_balancer_ip: localhost
+load_balancer_port: 50002
+
+client_manager_id_weight: 100000 # for client id assignment
+client_manager:
+- ip: localhost
+  port: 50003
+  client_db_port: 6380
+- ip: localhost
+  port: 50004
+  client_db_port: 6381
+max_task_offer_list_len: 20
+
+# PARAMETER_SERVER
+root_ps_ip: localhost #128.110.219.80
+root_ps_port: 60000
+leaf_ps_ip: localhost #141.211.141.44
+leaf_ps_port: 60001
+root_parameter_store_ttl: 1000
+root_aggregation_store_ttl: 2000
+leaf_parameter_store_ttl: 300 # min 10
+leaf_aggregation_store_ttl: 10 # min 10
+
+max_message_length: 1073741824  # 1GB
+in_memory: true
+
+# Scheduling context
+standard_round_time: 300 # default round time for jobs that doesn't have history round
+irs_epsilon: 0
+
+# ---Client---
+# Client data expiration time in Redis DB
+client_expire_time: 1000
+
+# ---Job---
+job_expire_time: 604800 # a week
+job_max_silent_time: 1800 # half an hour; 
+# if job doesn't send request to Propius for more than half an hour,
+# the job will be removed
+max_round: 1000 # for jobs that cannot provide total round estimate upon check-in
+allow_exceed_total_round: true
+
+# ---Constraint/spec setting---
+job_public_constraint:
+- cpu_f
+- ram
+- fp16_mem
+- android_os
+job_private_constraint:
+- dataset_size_dummy
+- dataset_size_house_price
+
+public_max:
+  cpu_f: 24.8
+  ram: 16
+  fp16_mem: 2800
+  android_os: 15
+
+# ---General---
+verbose: true
+plot: true
