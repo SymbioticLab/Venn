@@ -17,7 +17,9 @@ COPY ./evaluation/requirements_peripheral.txt evaluation/requirements_peripheral
 RUN python3.9 -m venv venv
 ENV PATH="/venv/bin:$PATH"
 
-RUN python -m pip install --upgrade pip
-RUN python -m pip install -r evaluation/requirements_peripheral.txt
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r evaluation/requirements_peripheral.txt
+
+RUN pip install "numpy<2"
 
 ENTRYPOINT ["/evaluation/job/entrypoint.sh"]

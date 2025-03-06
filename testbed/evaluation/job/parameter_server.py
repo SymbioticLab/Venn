@@ -1,3 +1,9 @@
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
 from propius.controller import Propius_job_aio
 from channels import parameter_server_pb2
 from channels import parameter_server_pb2_grpc
@@ -16,8 +22,6 @@ import asyncio
 import yaml
 import grpc
 
-import sys
-import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
@@ -475,7 +479,7 @@ async def run(config):
             
     custom_print(
         f"Parameter server: All round finished", INFO)
-    
+
 if __name__ == '__main__':
     if len(sys.argv) != 4:
         custom_print("Usage: python evaluation/job/parameter_server.py <config> <ip> <port>", ERROR)

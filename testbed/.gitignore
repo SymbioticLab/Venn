@@ -1,0 +1,61 @@
+# general things to ignore
+*.egg-info
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+out/
+tmp*
+math/
+env
+build/
+
+# filesystem
+.vscode
+.idea
+.DS_Store
+.apex
+
+# due to using tox and pytest
+*cache*
+
+# log
+*.log*
+*logging*
+# *csv
+
+# object
+*.bin
+
+# dataset
+open_images
+google_speech
+amazon_review
+charades
+europarl
+go
+inaturalist
+libriTTS
+open_images_detection
+reddit
+taobao
+taxi
+waymo
+femnist
+blog
+stackoverflow
+common_voice
+puffer
+landmark
+coqa
+house_price
+insurance
+
+# Evaluation results
+evaluation_result*
+experiment/
+*.tar.gz
+*.jpg
+*.csv
+*.log

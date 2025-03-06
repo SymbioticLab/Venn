@@ -30,7 +30,7 @@ client_test_num: 20
 ideal_client: false
 
 # Job
-total_job: 5
+total_job: 20
 profile_folder: ./evaluation/job/profile_dummy
 job_trace: ./evaluation/job/trace/job_trace_4.txt
 
@@ -87,4 +87,4 @@ worker:
 - ip: localhost
   port: 49991
   device: 3
-client_num: 1000
+client_num: 15000

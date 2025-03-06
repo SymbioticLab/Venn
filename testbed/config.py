@@ -14,22 +14,34 @@ PROPIUS_EVAL = 2
 # PROPIUS_SYS: Run Propius system
 # PROPIUS_POLICY: Run Propius policy evaluation
 # PROPIUS_EVAL: Run Propius evaluation with ML workloads using GPU
-option = PROPIUS_POLICY
+option = PROPIUS_SYS
 
+# Scheduler algorithm
+sched_alg = "irs"
+
+# Configuration file paths
 propius_config_file = './propius/global_config.yml'
 evaluation_config_file = './evaluation/evaluation_config.yml'
 
+# If you want to use docker to run Propius, set propius_use_docker to True
 propius_use_docker = True
+# If you want to use docker to run evaluation workloads, set evaluation_use_docker to True
+dispatcher_use_docker = True
 
+# Set the number of client manager
 client_manager_num = 2
 client_manager_port_start = 50003
 client_db_port_start = 6380
+
+# Ideal client: no failure or straggler
 ideal_client = False
+# FA: federated analytics mode (only forward pass)
 is_FA = False
 
+# Speedup factor for the emulation
 speedup_factor = 3
-sched_alg = 'irs'
 
+# Job profile folder
 profile_folder = './evaluation/job/profile_dummy'
 
 # Select job trace. The first column is the arrival time, the second column is the job id.
@@ -38,7 +50,6 @@ allow_exceed_total_round = True
 
 dataset = "femnist"
 
-dispatcher_use_docker = True
 
 ### STOP EDITING HERE!
 if option == PROPIUS_SYS:
@@ -314,4 +325,3 @@ with open(evaluation_config_file, 'w') as evaluation_config_yaml_file:
 
 with open(compose_file, 'w') as compose_yaml_file:
     yaml.dump(compose_data, compose_yaml_file)
-
