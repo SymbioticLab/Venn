@@ -50,7 +50,14 @@ python src/venn_event.py FIFOScheduler MixedJob VennClient 50 config/even_worklo
 python src/venn_event.py VennReqScheduler MixedJob VennClient 50 config/even_workload.yml
 ```
 
-To reproduce the rest of results in the paper, please check out `config` for the corresponding configurations. 
+- Expected results (check out `fig/`):
+  - `FIFOScheduler`: Average queuing delay: 246.436; Average job completion time (JCT): 4233961.563; Total makespan: 9069573.109
+  - `SmallReqScheduler`: Average queuing delay: 345.579; Average job completion time (JCT): 3445766.367; Total makespan: 10739668.501
+  - `VennReqScheduler`:  Average queuing delay: 321.743; Average job completion time (JCT): 3133770.735; Total makespan: 8742415.026
+
+- Each experiment is expected to take approximately 1 hour to complete, depending on your machine's specifications.
+
+- To reproduce additional results from the paper, refer to the config directory and replace <ClientAndJobTrace> with the corresponding configuration files.
 
 ## Code Structure
 
@@ -61,11 +68,9 @@ The Venn project is organized as follows:
   - `scheduler.py`: Implements different scheduling algorithms.
   - `client.py`: Defines client behavior and interactions.
   - `job.py`: Manages job definitions and lifecycle.
-- **config/**: Contains configuration files for FL job traces (resource demands and FL job type distribution). Check out `/config/test.yml` for more details.
-- **trace/**: Contains configuration files for FL client traces (availability and eligiblity traces). 
-
-## Testbed
-Venn is implemented in Propius testbed. Please check how to run Propius in the [Propius repository](./Propius/README.md).
+- **config/**: Contains configuration files for FL job traces (resource demands and FL job type distribution). Check out `config/test.yml` for more detailed explanations.
+- **trace/**: Contains configuration files for FL client traces (availability and eligiblity traces).
+- **testbed/**: Contains the code to run the testbed FL job scheduling experiments. Please check separate [instructions](./testbed/README.md) to setup Propius.
 
 ## License
 
