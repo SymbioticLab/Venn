@@ -124,7 +124,7 @@ chmod +x ./scripts/clean.sh
 ```
 ### The following instructions can be used to reproduce Figure 4 and 9 in Venn paper (requires GPU)
 
-
+- Edit and run `config.py` script for configuring docker compose files and Propius config files. Set `option = PROPIUS_EVAL`. Set `propius_use_docker = True`. Set `dispatcher_use_docker = True`. Set `sched_alg` to be one of `irs, fifo, random, and srsf`. (`irs` is Venn's policy).
 
 
 - Download Dataset
