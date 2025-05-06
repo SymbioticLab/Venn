@@ -1,5 +1,5 @@
 # Propius
-Propius is a resource manager and scheduler for managing multiple Federated Learning Training workloads.
+Propius is a resource manager and scheduler for managing multiple Collaborative Learning Training workloads.
 
 ## Installation
 1. Install docker and docker-compose
