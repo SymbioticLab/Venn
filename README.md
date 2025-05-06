@@ -1,8 +1,8 @@
-# Venn: Resource Management Across Federated Learning Jobs
+# Venn: Resource Management Across Collaborative Learning Jobs
 
 [![arXiv](https://img.shields.io/badge/arXiv-2312.08298v1-b31b1b.svg)](https://arxiv.org/abs/2312.08298)
 
-Venn is a federated learning (FL) resource manager that efficiently schedules ephemeral, heterogeneous edge devices among multiple FL jobs, reducing average job completion time.
+Venn is a collaborative learning (CL) resource manager that efficiently schedules ephemeral, heterogeneous edge devices among multiple FL jobs, reducing average job completion time.
 
 ## Installation
 
@@ -64,7 +64,7 @@ python src/venn_event.py VennReqScheduler MixedJob VennClient 50 config/even_wor
 The Venn project is organized as follows:
 
 - **venn/**: Contains the core logic for the Venn resource management tool.
-  - `venn_event.py`: Main script to simulate the scheduling for multiple federated learning jobs.
+  - `venn_event.py`: Main script to simulate the scheduling for multiple collaborative learning jobs.
   - `scheduler.py`: Implements different scheduling algorithms.
   - `client.py`: Defines client behavior and interactions.
   - `job.py`: Manages job definitions and lifecycle.
